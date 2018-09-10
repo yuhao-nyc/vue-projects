@@ -1,0 +1,11 @@
+$ad-border-color: #94999c;
+
+@mixin ad-border($size) {
+  color: $ad-border-color;
+  font-size: $size;
+  border-radius: 4px;
+}
+
+.ad-box {
+  @include ad-border(14px);
+}

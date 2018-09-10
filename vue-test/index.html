@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="classy.css">
+
+  </head>
+  <body>
+    <div class="box --bg-white">
+      A little some content
+    </div>
+
+
+
+
+
+
+
+    <div id="app">
+      {{ message }}
+    </div>
+
+    <div id="app-2">
+      <span v-bind:title="message">
+        please.... hover over me
+      </span>
+    </div>
+
+    <div id="app-3">
+      <span v-if="seen">
+        show and display
+      </span>
+    </div>
+
+    <div id="app-4">
+      <ol>
+        <li v-for="todo in todos">
+          {{ todo.text }}
+        </li>
+      </ol>
+    </div>
+
+    <div id="app-5">
+      <span>
+        {{ message }}
+      </span>
+      <button v-on:click="toggleMessage">Break them ALL</button>
+    </div>
+
+    <div id="app-6">
+      <p>
+        {{ message }}
+      </p>
+      <input v-model="message">
+    </div>
+  </body>
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'wait What?? Vue!'
+      }
+      })
+     var app2 = new Vue({
+       el: '#app-2',
+       data: {
+         message: 'yep you got me at' + Math.floor(9.88)
+       }
+     })
+     var app3 = new Vue({
+       el: '#app-3',
+       data: {
+         seen: false
+       }
+     })
+     var app4 = new Vue({
+       el: '#app-4',
+       data: {
+         todos: [
+           { text: 'Grape Fruit' },
+           { text: 'Apple' },
+           { text: 'Water' }
+         ]
+       }
+     })
+
+     var app5 = new Vue({
+       el: '#app-5',
+       data: {
+         message: 'click, click me here'
+       },
+       methods: {
+         toggleMessage: function(){
+           this.message = this.message.split('');
+         }
+       }
+     })
+
+     var app6 = new Vue({
+       el: '#app-6',
+       data: {
+         message: 'Putting down...'
+       }
+     })
+  </script>
+
+  <script src="https://use.typekit.net/aid8cmg.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+</html>
